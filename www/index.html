@@ -28,7 +28,7 @@
         <h1 class="title">Tip Calculator</h1>
       </ion-header-bar>
       <ion-content>
-          How good was your server?<p></p>
+          <strong>How good was your server?</strong><p></p>
 
 
           <label class="item item-input">
@@ -38,13 +38,17 @@
 
           <p></p>Subtotal: {{subtotal | currency}}
           <p></p>
+
+          <label class="item item-input">
+              <span class="input-label">
+              How many people are in my group (including yourself)?</span>
+                <input type="number" ng-model="numPeople" placeholder="number of people in my group including yourself">
+          </label>
+          <p></p>
+
+
           I want to tip:
             <p></p>
-          <!--<ion-radio ng-model="choice" value=".15">15%</ion-radio>-->
-          <!--<ion-radio ng-model="choice" value=".18">18%</ion-radio>-->
-          <!--<ion-radio ng-model="choice" value=".20">20%</ion-radio>-->
-          <!--<ion-radio ><input type="text" placeholder="custom percent  Ex: 10 is 10%" ng-model="choice"></ion-radio>-->
-          <!--<p></p>-->
 
           <div class="list">
 
@@ -89,17 +93,12 @@
 
           </div>
 
-I am tipping {{choice}}%
+            I am tipping {{choice}}%
 
           <p></p>
-          <h4>Tip you pay: <strong>{{(choice * subtotal / 100)|currency}}</strong></h4><p></p>
+          <h4>Tip you pay: <strong>{{(choice * subtotal / 100 / numPeople)|currency}}</strong></h4>
 
-
-
-          <p></p>
-
-
-         </ion-content>
+      </ion-content>
     </ion-pane>
   </body>
 </html>
